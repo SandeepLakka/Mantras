@@ -1,5 +1,5 @@
 {
-  "name": "mplayer",
+  "name": "Mantras",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -10,11 +10,16 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-community/slider": "4.2.1",
     "expo": "~45.0.0",
+    "expo-av": "~11.2.3",
+    "expo-cli": "4.1.3",
     "expo-status-bar": "~1.3.0",
+    "expo-updates": "~0.13.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-native": "0.68.2",
+    "react-native-track-player": "^2.2.0-rc4",
     "react-native-web": "0.17.7"
   },
   "devDependencies": {

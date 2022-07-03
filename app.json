@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mplayer",
-    "slug": "mplayer",
+    "name": "Mantras",
+    "slug": "Mantras",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,7 +24,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "sandeeplakka.github.io"
     },
     "web": {
       "favicon": "./assets/favicon.png"
