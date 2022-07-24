@@ -46,10 +46,23 @@ const Player = () => {
     async function loadSong() {
         console.log(songs[songIndex]);
         const isSongExists = await sound.current.getStatusAsync();
+        // if (isSongExists.isLoaded === false) {
+        //     while (!isSongExists.isLoaded) {
+        //         console.log("Sleeping for a second to have the previous audio loaded");
+        //         sleep(1000);
+        //     }
+            
+        // }
+        console.log("prev song is loaded? : ", isSongExists.isLoaded);
+
         if (isSongExists.isLoaded === true) {
             console.log("song already loaded, unloading it");
             await sound.current.unloadAsync();
         }
+
+        await Audio.setAudioModeAsync({
+            staysActiveInBackground: true,
+        })
         const { toBePlayed } = await sound.current.loadAsync(songs[songIndex].url);
         //const { toBePlayed } = await sound.current.createAsync(songs[songIndex].url);
         const isLoaded = await sound.current.getStatusAsync();
@@ -111,10 +124,19 @@ const Player = () => {
         }
     };
     
+    const sleep = ms => new Promise(
+        resolve => setTimeout(resolve, ms)
+      );
+      
     const togglePlaybackV1 = async () => {
         const status = await sound.current.getStatusAsync();
         console.log("--> status : ", status);
         console.log("--> isLoaded : ", (await status).isLoaded);
+        // while (!status.isLoaded) {
+        //     console.log("sleeping for a second till the song loads");
+        //     sleep(1000);
+        // }
+        console.log("-- final load status : ", status.isLoaded);
     
         if (status.isPlaying === false) {
             setIsPlaying(true);
